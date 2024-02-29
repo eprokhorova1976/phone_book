@@ -7,7 +7,7 @@ def add_contact():
     number = input('Введите номер: ')
     number = re.sub (r'[-]', '', number)
     comment = input('Введите комментарий: ')
-    id = len(book.readlines())+1
+    id = len(book.readlines())+2
     book.write(f'\n{id}; {name}; {number}; {comment}')
     book.close()
     print (f'Контакт {name}, {number}, {comment} добавлен')
@@ -99,9 +99,9 @@ def delete_contact():
 #Сохранить справочник
 #Выход
 
-# #Меню
+#Меню
 def menu():
-    menu_book = input ('\nЭто телефонный справочник.\nВыберите подходящий пункт меню:\n1- Показать все контакты;\n2- Создать контакт;\n3- Найти контакт;\n4- Редактировать контакт;\n5- Удалить контакт\nВведите ваш вариант: ')
+    menu_book = input ('\nЭто телефонный справочник.\nВыберите подходящий пункт меню:\n1- Показать все контакты;\n2- Создать контакт;\n3- Найти контакт;\n4- Редактировать контакт;\n5- Удалить контакт;\n6- Выход\nВведите ваш вариант: ')
     if menu_book == '1':
         show_contacts()
     elif menu_book == '2':
@@ -112,5 +112,7 @@ def menu():
         edit_contact()
     elif menu_book =='5':
         delete_contact()
+    elif menu_book =='6':
+        exit()
 
 menu()
