@@ -11,6 +11,7 @@ def add_contact():
     book.write(f'\n{id}; {name}; {number}; {comment}')
     book.close()
     print (f'Контакт {name}, {number}, {comment} добавлен')
+    menu()
 
 #Открыть справочник, cкопировать контакты
 def take_contacts():
@@ -22,7 +23,7 @@ def show_contacts():
     book = open('phones.txt', 'r', encoding='utf-8')
     for line in book:
         print(line)
-
+    menu()
 
 #Найти контакт
 def find_contact():
@@ -69,6 +70,7 @@ def find_contact():
     else:
         print ('Вы выбрали несуществующий вариант. Попробуйте снова')
         find_contact()
+    menu()
                 
 #Изменить контакт
         
@@ -90,10 +92,24 @@ def delete_contact():
         different_search = input ('Такого контакта не нашлось. Попробовать найти по другим параметрам? 1-да, 2-нет: ')   
         if different_search == '1':
             delete_contact() 
-    
+    menu()
 
-delete_contact()
+
 #Сохранить справочник
 #Выход
 
+#Меню
+def menu():
+    menu_book = input ('\nЭто телефонный справочник.\nВыберите подходящий пункт меню:\n1- Показать все контакты;\n2- Создать контакт;\n3- Найти контакт;\n4- Редактировать контакт;\n5- Удалить контакт\nВведите ваш вариант: ')
+    if menu_book == '1':
+        show_contacts()
+    elif menu_book == '2':
+        add_contact()
+    elif menu_book =='3':
+        find_contact()
+    elif menu_book == '4':
+        edit_contact()
+    elif menu_book =='5':
+        delete_contact()
 
+menu()
